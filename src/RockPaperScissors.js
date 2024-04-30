@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { generateRandomNumber } from './random'; // Import the generateRandomNumber function
 
 const RockPaperScissors = () => {
@@ -6,6 +6,7 @@ const RockPaperScissors = () => {
   const [playerScore, setPlayerScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
   const [outcome, setOutcome] = useState('');
+  const videoRef = useRef(null); // Create a ref for the video element
 
   const determineOutcome = (playerMove, computerMove) => {
     let roundOutcome = '';
@@ -43,7 +44,7 @@ const RockPaperScissors = () => {
     setOutcome(roundOutcome);
   };
 
-  const handlePlayerMove = (move) => {
+  const handlePlayerMove = async (move) => {
     const random_number = generateRandomNumber(1, 3);
     let computerMove = '';
     if (random_number === 1) {
@@ -55,6 +56,181 @@ const RockPaperScissors = () => {
     }
     setPlayerMoves([...playerMoves, move]);
     determineOutcome(move, computerMove);
+  
+    if (move === 'Rock' && computerMove === 'Scissors') {
+      console.log('Fetching video for Rock vs Scissors...');
+      try {
+        const response = await fetch('http://127.0.0.1:5000/get_video/rock_scissors.mp4');
+        if (response.ok) {
+          const videoBlob = await response.blob();
+          const videoUrl = URL.createObjectURL(videoBlob);
+          videoRef.current.src = videoUrl;
+          videoRef.current.style.display = 'block';
+          videoRef.current.play();
+          videoRef.current.controls = false;
+        } else {
+          console.error('Failed to fetch video:', response.status, response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching video:', error);
+      }
+    }
+
+    if (move === 'Scissors' && computerMove === 'Paper') {
+        try {
+          const response = await fetch('http://127.0.0.1:5000/get_video/scissors_paper.mp4');
+          if (response.ok) {
+            const videoBlob = await response.blob();
+            const videoUrl = URL.createObjectURL(videoBlob);
+            videoRef.current.src = videoUrl; // Set the video URL to the video element
+            videoRef.current.style.display = 'block'; // Show the video element
+            videoRef.current.play(); // Start playing the video
+            videoRef.current.controls = false; // Hide the video controls
+          } else {
+            console.error('Failed to fetch video:', response.status, response.statusText);
+          }
+        } catch (error) {
+          console.error('Error fetching video:', error);
+        }
+      }
+
+      if (move === 'Paper' && computerMove === 'Rock') {
+        try {
+          const response = await fetch('http://127.0.0.1:5000/get_video/paper_rock.mp4');
+          if (response.ok) {
+            const videoBlob = await response.blob();
+            const videoUrl = URL.createObjectURL(videoBlob);
+            videoRef.current.src = videoUrl; // Set the video URL to the video element
+            videoRef.current.style.display = 'block'; // Show the video element
+            videoRef.current.play(); // Start playing the video
+            videoRef.current.controls = false; // Hide the video controls
+          } else {
+            console.error('Failed to fetch video:', response.status, response.statusText);
+          }
+        } catch (error) {
+          console.error('Error fetching video:', error);
+        }
+      }
+
+      if (move === 'Rock' && computerMove === 'Paper') {
+        try {
+          const response = await fetch('http://127.0.0.1:5000/get_video/paper_rock.mp4');
+          if (response.ok) {
+            const videoBlob = await response.blob();
+            const videoUrl = URL.createObjectURL(videoBlob);
+            videoRef.current.src = videoUrl; // Set the video URL to the video element
+            videoRef.current.style.display = 'block'; // Show the video element
+            videoRef.current.play(); // Start playing the video
+            videoRef.current.style.transform = 'scaleX(-1)'; // Flip the video horizontally
+            videoRef.current.controls = false; // Hide the video controls
+          } else {
+            console.error('Failed to fetch video:', response.status, response.statusText);
+          }
+        } catch (error) {
+          console.error('Error fetching video:', error);
+        }
+    } else {
+        // Reset the transformation for other cases
+        videoRef.current.style.transform = 'none';
+      }
+
+      if (move === 'Paper' && computerMove === 'Scissors') {
+        try {
+          const response = await fetch('http://127.0.0.1:5000/get_video/scissors_paper.mp4');
+          if (response.ok) {
+            const videoBlob = await response.blob();
+            const videoUrl = URL.createObjectURL(videoBlob);
+            videoRef.current.src = videoUrl; // Set the video URL to the video element
+            videoRef.current.style.display = 'block'; // Show the video element
+            videoRef.current.play(); // Start playing the video
+            videoRef.current.style.transform = 'scaleX(-1)'; // Flip the video horizontally
+            videoRef.current.controls = false; // Hide the video controls
+          } else {
+            console.error('Failed to fetch video:', response.status, response.statusText);
+          }
+        } catch (error) {
+          console.error('Error fetching video:', error);
+        }
+    } else {
+        // Reset the transformation for other cases
+        videoRef.current.style.transform = 'none';
+      }
+
+      if (move === 'Scissors' && computerMove === 'Rock') {
+        try {
+          const response = await fetch('http://127.0.0.1:5000/get_video/rock_scissors.mp4');
+          if (response.ok) {
+            const videoBlob = await response.blob();
+            const videoUrl = URL.createObjectURL(videoBlob);
+            videoRef.current.src = videoUrl; // Set the video URL to the video element
+            videoRef.current.style.display = 'block'; // Show the video element
+            videoRef.current.play(); // Start playing the video
+            videoRef.current.style.transform = 'scaleX(-1)'; // Flip the video horizontally
+            videoRef.current.controls = false; // Hide the video controls
+          } else {
+            console.error('Failed to fetch video:', response.status, response.statusText);
+          }
+        } catch (error) {
+          console.error('Error fetching video:', error);
+        }
+    } else {
+        // Reset the transformation for other cases
+        videoRef.current.style.transform = 'none';
+      }
+
+      if (move === 'Scissors' && computerMove === 'Scissors') {
+        try {
+          const response = await fetch('http://127.0.0.1:5000/get_video/scissors_tie.mp4');
+          if (response.ok) {
+            const videoBlob = await response.blob();
+            const videoUrl = URL.createObjectURL(videoBlob);
+            videoRef.current.src = videoUrl; // Set the video URL to the video element
+            videoRef.current.style.display = 'block'; // Show the video element
+            videoRef.current.play(); // Start playing the video
+            videoRef.current.controls = false; // Hide the video controls
+          } else {
+            console.error('Failed to fetch video:', response.status, response.statusText);
+          }
+        } catch (error) {
+          console.error('Error fetching video:', error);
+        }
+      }
+
+      if (move === 'Rock' && computerMove === 'Rock') {
+        try {
+          const response = await fetch('http://127.0.0.1:5000/get_video/rock_tie.mp4');
+          if (response.ok) {
+            const videoBlob = await response.blob();
+            const videoUrl = URL.createObjectURL(videoBlob);
+            videoRef.current.src = videoUrl; // Set the video URL to the video element
+            videoRef.current.style.display = 'block'; // Show the video element
+            videoRef.current.play(); // Start playing the video
+            videoRef.current.controls = false; // Hide the video controls
+          } else {
+            console.error('Failed to fetch video:', response.status, response.statusText);
+          }
+        } catch (error) {
+          console.error('Error fetching video:', error);
+        }
+      }
+
+      if (move === 'Paper' && computerMove === 'Paper') {
+        try {
+          const response = await fetch('http://127.0.0.1:5000/get_video/paper_tie.mp4');
+          if (response.ok) {
+            const videoBlob = await response.blob();
+            const videoUrl = URL.createObjectURL(videoBlob);
+            videoRef.current.src = videoUrl; // Set the video URL to the video element
+            videoRef.current.style.display = 'block'; // Show the video element
+            videoRef.current.play(); // Start playing the video
+            videoRef.current.controls = false; // Hide the video controls
+          } else {
+            console.error('Failed to fetch video:', response.status, response.statusText);
+          }
+        } catch (error) {
+          console.error('Error fetching video:', error);
+        }
+      }
   };
 
   return (
@@ -71,6 +247,9 @@ const RockPaperScissors = () => {
       </div>
       <div>
         <p>{outcome}</p>
+      </div>
+      <div>
+        <video ref={videoRef} controls style={{ display: 'none' }} />
       </div>
     </div>
   );
