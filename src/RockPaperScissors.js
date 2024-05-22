@@ -253,16 +253,14 @@ const RockPaperScissors = () => {
     <div>
       <h1 className='RPS_title'>Rock Paper Scissors</h1>
       {!isVideoPlaying && (
-        <div className='RPS_buttons'>
+        <div className='RPS_header'>
+          <p className='Player_score'>Player Score: {playerScore}</p>
           <button onClick={() => handlePlayerMove('Rock')} className='buttons'>Rock</button>
           <button onClick={() => handlePlayerMove('Paper')} className='buttons'>Paper</button>
           <button onClick={() => handlePlayerMove('Scissors')} className='buttons'>Scissors</button>
+          <p className='Computer_score'>Computer Score: {computerScore}</p>
         </div>
       )}
-      <div>
-        <p className='Player_score'>Player Score: {playerScore}</p>
-        <p className='Computer_score'>Computer Score: {computerScore}</p>
-      </div>
       <div>
         <p>{outcome}</p>
       </div>

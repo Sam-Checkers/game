@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-.RPS_buttons {
+.RPS_header {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -15,3 +15,14 @@
   font-size: large;
 }
 
+.Player_score {
+  margin-right: 300px;
+  font-size: 40px;
+  margin-top: -10px;
+}
+
+.Computer_score {
+  font-size: 40px;
+  margin-left: 300px;
+  margin-top: -10px;
+}
