@@ -2,6 +2,18 @@ import React, { useState, useRef, useEffect } from 'react';
 import { generateRandomNumber } from './random';
 import './RockPaperScissors.css';
 
+function requestFullScreen(element) {
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.mozRequestFullScreen) { /* Firefox */
+    element.mozRequestFullScreen();
+  } else if (element.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    element.webkitRequestFullscreen();
+  } else if (element.msRequestFullscreen) { /* IE/Edge */
+    element.msRequestFullscreen();
+  }
+}
+
 const RockPaperScissors = () => {
     const [playerMoves, setPlayerMoves] = useState([]);
     const [playerScore, setPlayerScore] = useState(0);
@@ -14,33 +26,24 @@ const RockPaperScissors = () => {
     let roundOutcome = '';
     if (playerMove === 'Rock') {
       if (computerMove === 'Scissors') {
-        roundOutcome = 'Rock CRUSHES Scissors! Player Victory!';
         setPlayerScore(playerScore + 1);
       } else if (computerMove === 'Paper') {
-        roundOutcome = 'Paper COVERS Rock! Computer Victory!';
         setComputerScore(computerScore + 1);
       } else {
-        roundOutcome = 'Tie';
       }
     } else if (playerMove === 'Paper') {
       if (computerMove === 'Rock') {
-        roundOutcome = 'Paper COVERS Rock! Player Victory!';
         setPlayerScore(playerScore + 1);
       } else if (computerMove === 'Scissors') {
-        roundOutcome = 'Scissors CUT Paper! Computer Victory!';
         setComputerScore(computerScore + 1);
       } else {
-        roundOutcome = 'Tie';
       }
     } else if (playerMove === 'Scissors') {
       if (computerMove === 'Paper') {
-        roundOutcome = 'Scissors CUT Paper! Player Victory!';
         setPlayerScore(playerScore + 1);
       } else if (computerMove === 'Rock') {
-        roundOutcome = 'Rock CRUSHES Scissors! Computer Victory!';
         setComputerScore(computerScore + 1);
       } else {
-        roundOutcome = 'Tie';
       }
     }
     setOutcome(roundOutcome);
@@ -74,6 +77,7 @@ const RockPaperScissors = () => {
           videoRef.current.style.display = 'block';
           videoRef.current.play();
           videoRef.current.controls = false;
+          requestFullScreen(videoRef.current);
         } else {
           console.error('Failed to fetch video:', response.status, response.statusText);
         }
@@ -92,6 +96,7 @@ const RockPaperScissors = () => {
             videoRef.current.style.display = 'block';
             videoRef.current.play();
             videoRef.current.controls = false;
+            requestFullScreen(videoRef.current);
           } else {
             console.error('Failed to fetch video:', response.status, response.statusText);
           }
@@ -110,6 +115,7 @@ const RockPaperScissors = () => {
             videoRef.current.style.display = 'block';
             videoRef.current.play();
             videoRef.current.controls = false;
+            requestFullScreen(videoRef.current);
           } else {
             console.error('Failed to fetch video:', response.status, response.statusText);
           }
@@ -128,6 +134,7 @@ const RockPaperScissors = () => {
             videoRef.current.style.display = 'block';
             videoRef.current.play();
             videoRef.current.controls = false;
+            requestFullScreen(videoRef.current);
           } else {
             console.error('Failed to fetch video:', response.status, response.statusText);
           }
@@ -148,6 +155,7 @@ const RockPaperScissors = () => {
             videoRef.current.style.display = 'block';
             videoRef.current.play();
             videoRef.current.controls = false;
+            requestFullScreen(videoRef.current);
           } else {
             console.error('Failed to fetch video:', response.status, response.statusText);
           }
@@ -168,6 +176,7 @@ const RockPaperScissors = () => {
             videoRef.current.style.display = 'block';
             videoRef.current.play();
             videoRef.current.controls = false;
+            requestFullScreen(videoRef.current);
           } else {
             console.error('Failed to fetch video:', response.status, response.statusText);
           }
@@ -188,6 +197,7 @@ const RockPaperScissors = () => {
             videoRef.current.style.display = 'block';
             videoRef.current.play();
             videoRef.current.controls = false;
+            requestFullScreen(videoRef.current);
           } else {
             console.error('Failed to fetch video:', response.status, response.statusText);
           }
@@ -206,6 +216,7 @@ const RockPaperScissors = () => {
             videoRef.current.style.display = 'block';
             videoRef.current.play();
             videoRef.current.controls = false;
+            requestFullScreen(videoRef.current);
           } else {
             console.error('Failed to fetch video:', response.status, response.statusText);
           }
@@ -224,6 +235,7 @@ const RockPaperScissors = () => {
             videoRef.current.style.display = 'block';
             videoRef.current.play();
             videoRef.current.controls = false;
+            requestFullScreen(videoRef.current);
           } else {
             console.error('Failed to fetch video:', response.status, response.statusText);
           }
