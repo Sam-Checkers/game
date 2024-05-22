@@ -69,7 +69,7 @@ const RockPaperScissors = () => {
     if (move === 'Rock' && computerMove === 'Scissors') {
       console.log('Fetching video for Rock vs Scissors...');
       try {
-        const response = await fetch('http://127.0.0.1:5000/get_video/rock_scissors.mp4');
+        const response = await fetch('https://games-api-rgcz.onrender.com/get_video/rock_scissors.mp4');
         if (response.ok) {
           const videoBlob = await response.blob();
           const videoUrl = URL.createObjectURL(videoBlob);
@@ -88,7 +88,7 @@ const RockPaperScissors = () => {
 
     if (move === 'Scissors' && computerMove === 'Paper') {
         try {
-          const response = await fetch('http://127.0.0.1:5000/get_video/scissors_cut_paper.mp4');
+          const response = await fetch('https://games-api-rgcz.onrender.com/get_video/scissors_cut_paper.mp4');
           if (response.ok) {
             const videoBlob = await response.blob();
             const videoUrl = URL.createObjectURL(videoBlob);
@@ -107,7 +107,7 @@ const RockPaperScissors = () => {
 
       if (move === 'Paper' && computerMove === 'Rock') {
         try {
-          const response = await fetch('http://127.0.0.1:5000/get_video/paper_covers_rock.mp4');
+          const response = await fetch('https://games-api-rgcz.onrender.com/get_video/paper_covers_rock.mp4');
           if (response.ok) {
             const videoBlob = await response.blob();
             const videoUrl = URL.createObjectURL(videoBlob);
@@ -126,7 +126,7 @@ const RockPaperScissors = () => {
 
       if (move === 'Rock' && computerMove === 'Paper') {
         try {
-          const response = await fetch('http://127.0.0.1:5000/get_video/paper_covers_rock.mp4');
+          const response = await fetch('https://games-api-rgcz.onrender.com/get_video/paper_covers_rock.mp4');
           if (response.ok) {
             const videoBlob = await response.blob();
             const videoUrl = URL.createObjectURL(videoBlob);
@@ -147,7 +147,7 @@ const RockPaperScissors = () => {
 
       if (move === 'Paper' && computerMove === 'Scissors') {
         try {
-          const response = await fetch('http://127.0.0.1:5000/get_video/scissors_cut_paper.mp4');
+          const response = await fetch('https://games-api-rgcz.onrender.com/get_video/scissors_cut_paper.mp4');
           if (response.ok) {
             const videoBlob = await response.blob();
             const videoUrl = URL.createObjectURL(videoBlob);
@@ -168,7 +168,7 @@ const RockPaperScissors = () => {
 
       if (move === 'Scissors' && computerMove === 'Rock') {
         try {
-          const response = await fetch('http://127.0.0.1:5000/get_video/rock_scissors.mp4');
+          const response = await fetch('https://games-api-rgcz.onrender.com/get_video/rock_scissors.mp4');
           if (response.ok) {
             const videoBlob = await response.blob();
             const videoUrl = URL.createObjectURL(videoBlob);
@@ -189,7 +189,7 @@ const RockPaperScissors = () => {
 
       if (move === 'Scissors' && computerMove === 'Scissors') {
         try {
-          const response = await fetch('http://127.0.0.1:5000/get_video/scissors_tie.mp4');
+          const response = await fetch('https://games-api-rgcz.onrender.com/get_video/scissors_tie.mp4');
           if (response.ok) {
             const videoBlob = await response.blob();
             const videoUrl = URL.createObjectURL(videoBlob);
@@ -208,7 +208,7 @@ const RockPaperScissors = () => {
 
       if (move === 'Rock' && computerMove === 'Rock') {
         try {
-          const response = await fetch('http://127.0.0.1:5000/get_video/rock_tie.mp4');
+          const response = await fetch('https://games-api-rgcz.onrender.com/get_video/rock_tie.mp4');
           if (response.ok) {
             const videoBlob = await response.blob();
             const videoUrl = URL.createObjectURL(videoBlob);
@@ -227,7 +227,7 @@ const RockPaperScissors = () => {
 
       if (move === 'Paper' && computerMove === 'Paper') {
         try {
-          const response = await fetch('http://127.0.0.1:5000/get_video/paper_tie.mp4');
+          const response = await fetch('https://games-api-rgcz.onrender.com/get_video/paper_tie.mp4');
           if (response.ok) {
             const videoBlob = await response.blob();
             const videoUrl = URL.createObjectURL(videoBlob);
