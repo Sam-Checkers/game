@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { generateRandomNumber } from './random';
+import './RockPaperScissors.css';
 
 const RockPaperScissors = () => {
     const [playerMoves, setPlayerMoves] = useState([]);
@@ -83,7 +84,7 @@ const RockPaperScissors = () => {
 
     if (move === 'Scissors' && computerMove === 'Paper') {
         try {
-          const response = await fetch('http://127.0.0.1:5000/get_video/scissors_paper.mp4');
+          const response = await fetch('http://127.0.0.1:5000/get_video/scissors_cut_paper.mp4');
           if (response.ok) {
             const videoBlob = await response.blob();
             const videoUrl = URL.createObjectURL(videoBlob);
@@ -101,7 +102,7 @@ const RockPaperScissors = () => {
 
       if (move === 'Paper' && computerMove === 'Rock') {
         try {
-          const response = await fetch('http://127.0.0.1:5000/get_video/paper_rock.mp4');
+          const response = await fetch('http://127.0.0.1:5000/get_video/paper_covers_rock.mp4');
           if (response.ok) {
             const videoBlob = await response.blob();
             const videoUrl = URL.createObjectURL(videoBlob);
@@ -119,14 +120,13 @@ const RockPaperScissors = () => {
 
       if (move === 'Rock' && computerMove === 'Paper') {
         try {
-          const response = await fetch('http://127.0.0.1:5000/get_video/paper_rock.mp4');
+          const response = await fetch('http://127.0.0.1:5000/get_video/paper_covers_rock.mp4');
           if (response.ok) {
             const videoBlob = await response.blob();
             const videoUrl = URL.createObjectURL(videoBlob);
             videoRef.current.src = videoUrl;
             videoRef.current.style.display = 'block';
             videoRef.current.play();
-            videoRef.current.style.transform = 'scaleX(-1)';
             videoRef.current.controls = false;
           } else {
             console.error('Failed to fetch video:', response.status, response.statusText);
@@ -140,14 +140,13 @@ const RockPaperScissors = () => {
 
       if (move === 'Paper' && computerMove === 'Scissors') {
         try {
-          const response = await fetch('http://127.0.0.1:5000/get_video/scissors_paper.mp4');
+          const response = await fetch('http://127.0.0.1:5000/get_video/scissors_cut_paper.mp4');
           if (response.ok) {
             const videoBlob = await response.blob();
             const videoUrl = URL.createObjectURL(videoBlob);
             videoRef.current.src = videoUrl;
             videoRef.current.style.display = 'block';
             videoRef.current.play();
-            videoRef.current.style.transform = 'scaleX(-1)';
             videoRef.current.controls = false;
           } else {
             console.error('Failed to fetch video:', response.status, response.statusText);
@@ -168,7 +167,6 @@ const RockPaperScissors = () => {
             videoRef.current.src = videoUrl;
             videoRef.current.style.display = 'block';
             videoRef.current.play();
-            videoRef.current.style.transform = 'scaleX(-1)';
             videoRef.current.controls = false;
           } else {
             console.error('Failed to fetch video:', response.status, response.statusText);
@@ -253,7 +251,7 @@ const RockPaperScissors = () => {
 
   return (
     <div>
-      <h1>Rock Paper Scissors</h1>
+      <h1 className='RPS_title'>Rock Paper Scissors</h1>
       {!isVideoPlaying && (
         <div>
           <button onClick={() => handlePlayerMove('Rock')}>Rock</button>
