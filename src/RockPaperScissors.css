@@ -16,6 +16,7 @@
   height: 75px;
   font-size: large;
   background-color: rgb(122, 82, 21);
+  cursor: pointer;
 }
 
 .paper_button {
@@ -24,6 +25,7 @@
   height: 75px;
   font-size: large;
   background-color: white;
+  cursor: pointer;
 }
 
 .scissors_button {
@@ -32,6 +34,7 @@
   height: 75px;
   font-size: large;
   background-color: rgb(155, 221, 221);
+  cursor: pointer;
 }
 
 .Player_score {
